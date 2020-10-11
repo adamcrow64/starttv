@@ -1,0 +1,24 @@
+version: '2.3'
+
+services:
+  starttv:
+    image: crowtech/starttv 
+    container_name: starttv 
+    restart: always
+    ports:
+      - 2000:8080
+      - 5505:5005
+    networks:
+      - mainproxy
+
+volumes:
+  mysql_data2:
+  minio_conf:
+  minio_data:
+  maildata:
+    driver: local
+  mailstate:
+    driver: local
+networks:
+  mainproxy:
+    driver: bridge
